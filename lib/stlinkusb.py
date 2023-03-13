@@ -1,6 +1,5 @@
 import usb.core
 import usb.util
-import lib.stlinkex
 import re
 
 

@@ -1,6 +1,5 @@
 import time
-import lib.stm32
-import lib.stlinkex
+from . import stm32
 
 
 class Flash():
@@ -147,7 +146,7 @@ class Flash():
 
 # support all STM32F MCUs with sector access access to FLASH
 # (STM32F2xx, STM32F4xx)
-class Stm32FS(lib.stm32.Stm32):
+class Stm32FS(stm32.Stm32):
     def flash_erase_all(self, flash_size):
         self._dbg.debug('Stm32FS.flash_erase_all()')
         flash = Flash(self, self._stlink, self._dbg)

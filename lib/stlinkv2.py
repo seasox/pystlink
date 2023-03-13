@@ -1,4 +1,3 @@
-import lib.stlinkex
 
 
 class Stlink():
