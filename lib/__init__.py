@@ -4,3 +4,4 @@ from .stm32devices import *
 from .dbg import Dbg
 from .stlinkusb import *
 from .stlinkv2 import *
+from .stlinkex import *
