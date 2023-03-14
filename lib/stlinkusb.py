@@ -139,6 +139,13 @@ class StlinkUsbConnector():
                 raise stlinkex.StlinkException("USB Error: %s" % e)
             return None
 
+    def close(self):
+        if not self._dev:
+            # no device, nothing to do
+            return
+        self._dbg.info('close device')
+        usb.util.dispose_resources(self._dev)
+
     def unmount_discovery(self):
         import platform
         if platform.system() != 'Darwin' or self.version != 'V2-1':
