@@ -245,7 +245,7 @@ class Stlink():
             raise lib.stlinkex.StlinkException('get_mem address %08xis not in multiples of 4' % addr)
         cmd = [Stlink.STLINK_DEBUG_COMMAND, Stlink.STLINK_DEBUG_APIV2_READDEBUGREG]
         cmd.extend(list(addr.to_bytes(4, byteorder='little')))
-        rx = self._connector.xfer(cmd, rx_len=8)
+        rx = self._connector.xfer(cmd, rx_len=8, retry=42)
         return int.from_bytes(rx[4:8], byteorder='little')
 
     def get_debugreg16(self, addr):
